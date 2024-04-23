@@ -1,8 +1,14 @@
-#include "Renderer.hpp"
+#include "OpenGLContext.hpp"
 
 #include <iostream>
 
 int main() {
-    std::unique_ptr<Renderer::Window> windowPtr (new Renderer::Window("Fraktale"));
-    return windowPtr->CreateContext();
+    try {
+        const std::unique_ptr<Rendering::OpenGLContext> contextPtr(new Rendering::OpenGLContext());
+        return contextPtr->createContext();
+    }
+    catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 }

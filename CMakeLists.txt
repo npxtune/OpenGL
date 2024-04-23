@@ -12,6 +12,6 @@ include_directories(
 )
 
 add_executable(OpenGL src/Main.cpp
-        src/Renderer.cpp
-        include/Renderer.hpp)
+        src/OpenGLContext.cpp
+        include/OpenGLContext.hpp)
 target_link_libraries(OpenGL glfw GLAD)
